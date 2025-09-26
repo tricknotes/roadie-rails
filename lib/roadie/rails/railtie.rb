@@ -16,9 +16,7 @@ module Roadie
           if app.assets
             config.roadie.asset_providers << AssetPipelineProvider.new(app.assets)
           elsif defined?(Propshaft)
-            config.after_initialize do |app|
-              config.roadie.asset_providers << AssetPropshaftProvider.new(app.assets)
-            end
+            config.roadie.asset_providers << AssetPropshaftProvider.new(app.assets)
           else
             app.config.assets.configure do |env|
               config.roadie.asset_providers <<
